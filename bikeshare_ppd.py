@@ -158,7 +158,7 @@ def station_stats(df):
     count_start_end_station = df['Start and End Station'].value_counts()[most_common_start_end_station]
     print('The most commonly used combination of start and end stations are "{}'
           '\n'.format(most_common_start_end_station))
-          
+
     print('This trip was taken a total of {} times.'.format(count_start_end_station))
 
     print("\nThis took %s seconds." % (time.time() - start_time))
@@ -236,10 +236,10 @@ def raw_data(df):
         i = 0
         # this while loop cycles through raw data in csv and displays it
         while True:
-            print(df.iloc[i:i + 5])
-            i += 5
+            print(df.iloc[i:i + 10])
+            i += 10
             print("\nThis took %s seconds." % (time.time() - start_time))
-            more_data_request = input('\nWould you like to see 5 more rows of raw data?  (Yes or No)\n> ').lower()
+            more_data_request = input('\nWould you like to see 10 more rows of raw data?  (Yes or No)\n> ').lower()
             # breaks out of loop if user doesn't type "yes"
             if more_data_request != 'yes':
                 break
