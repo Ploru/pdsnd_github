@@ -46,7 +46,7 @@ def get_filters():
             continue
         else:
             break
-    print('Awesome! Let\'s check for aditional fitlering options.')
+    print('Perfect! You selected {}, let\'s check for additional filters.'.format(city))
     print()
 
     # get user input for month (all, january, february, ... , june)
@@ -59,7 +59,7 @@ def get_filters():
             continue
         else:
             break
-        print('Awesome! Let\'s check for aditional fitlering options.')
+        print('Perfect! You selected {}, let\'s check for additional filters.'.format(month))
         print()
 
 
@@ -71,6 +71,8 @@ def get_filters():
             continue
         else:
             break
+        print('Perfect! You selected {}.'.format(day))
+        print()
 
     print('-'*40)
     return city, month, day
