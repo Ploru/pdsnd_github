@@ -32,10 +32,6 @@ def get_filters():
           '\n'
           'c) Washington'
           '\n')
-    # get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
-    '''city = str(input('Which City would you like to analyze?:'
-                          '\n').lower())'''
-
     while True:
         city = str(input('Which City would you like to analyze?:'
                                   '\n').lower())
@@ -46,26 +42,27 @@ def get_filters():
             continue
         else:
             break
+
     print('Awesome! Let\'s check for aditional fitlering options.')
     print()
 
-    # get user input for month (all, january, february, ... , june)
     while True:
         month = str(input('What month would you like to analyze?'\
-                                  '\n (select any month from january to june):').lower())
+                          '\n (select any month from january - june):').lower())
         if month not in months:
-            month = input('Please select either a month from january to june (inclusive), or \"all\"'
-              '\n for all available months:')
+            month = input('Please select either a month from january to'
+                          '\n june (inclusive), or \"all\" for all available'
+                          ' months:')
             continue
         else:
             break
+
         print('Awesome! Let\'s check for aditional fitlering options.')
         print()
 
-
-    # get user input for day of week (all, monday, tuesday, ... sunday)
     while True:
-        day = str(input('What day of the week would you like to analyze?').title())
+        day = str(input('What day of the week would you like to'
+                        ' analyze?').title())
         if day not in days:
             day = input('Type in a day of the week (eg: Wednesday) or \"all\":')
             continue
@@ -106,9 +103,11 @@ def load_data(city, month, day):
 
 
 def time_stats(df):
+
     """Displays statistics on the most frequent times of travel."""
 
     print('\nCalculating The Most Frequent Times of Travel...\n')
+
     start_time = time.time()
     df['Start Time'] = pd.to_datetime(df['Start Time'])
     df['month'] = df['Start Time'].dt.month
@@ -117,11 +116,13 @@ def time_stats(df):
 
     # display the most common month
     most_frequent_month = df['month'].mode()[0]
-    print('The month with the most number of travels is {}.'.format(most_frequent_month))
+    print('The month with the most number of travels is {}.'
+          .format(most_frequent_month))
 
     # display the most common day of week
     most_frequent_day = df['day_of_week'].mode()[0]
-    print('The day with the most number of travel is {}.'.format(most_frequent_day))
+    print('The day with the most number of travel is {}.'
+          .format(most_frequent_day))
 
     # display the most common start hour
     most_common_start_hour = df['hour'].mode()[0]
@@ -140,14 +141,16 @@ def station_stats(df):
     # display most commonly used start station
     most_common_start_station = df['Start Station'].mode()[0]
     count_start_station = df['Start Station'].value_counts()[most_common_start_station]
-    print('The most commonly used start station is \"{}\", having been used a total'
-          '\n of {} times.'.format(most_common_start_station, count_start_station))
+    print('The most commonly used start station is \"{}\", having been used a'
+          '\n total of {} times.'
+          .format(most_common_start_station, count_start_station))
 
     # display most commonly used end station
     most_common_end_station = df['End Station'].mode()[0]
     count_end_station = df['End Station'].value_counts()[most_common_end_station]
-    print('The most commonly used end station is \"{}\", having been used a total'
-          '\n of {} times.'.format(most_common_end_station, count_end_station))
+    print('The most commonly used end station is \"{}\", having been used a '
+          '\n total of {} times.'
+          .format(most_common_end_station, count_end_station))
 
     # display most frequent combination of start station and end station trip
     df['Start and End Station'] = df['Start Station'] + df['End Station']
@@ -155,6 +158,7 @@ def station_stats(df):
     count_start_end_station = df['Start and End Station'].value_counts()[most_common_start_end_station]
     print('The most commonly used combination of start and end stations are "{}'
           '\n'.format(most_common_start_end_station))
+          
     print('This trip was taken a total of {} times.'.format(count_start_end_station))
 
     print("\nThis took %s seconds." % (time.time() - start_time))
