@@ -1,15 +1,17 @@
 ### Date created
-Include the date you created this project and README file.
+03/26/19 @ 9:30am PST
 
 ### Project Title
-Replace the Project Title
+PPD - US Bikeshare Data
 
 ### Description
-Describe what your project is about and what it does
+A simple Python Script used to query Bikeshare information for three cities
+in the US (NY, Chicago, Washington). The python script prompts the user to define filtering criteria (city, month, day of week) and then returns a series of descriptive statistics.
 
 ### Files used
-Include the files used
+chicago.csv
+new_york_city.csv
+washington.csv
 
 ### Credits
-It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
-
+The last two sections of the script (display 5 rows at a time & prompt user to restart) were based off of this: https://pastebin.com/gNV8vyMc
